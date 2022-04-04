@@ -8,4 +8,7 @@
 <p>{{$post->description}}</p>
 
 <div>{{$post->content}}</div>
+
+<a href="{{route('post.index')}}">Volver</a>
+
 @endsection

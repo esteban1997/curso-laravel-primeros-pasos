@@ -2,28 +2,26 @@
 
 @section('content')
 
-    <a href="{{route('post.create')}}">Crear</a>
-    <a href="{{route('category.index')}}">Ir Categorias</a>
+    <a href="{{route('category.create')}}">Crear</a>
+    <a href="{{route('post.index')}}">Ir Posts</a>
 
     <table border="1">
         <thead>
             <tr>
                 <th>Titulo</th>
                 <th>Categoria</th>
-                <th>Posted</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($posts as $p)
+            @foreach ($category as $c)
                 <tr>
-                    <td>{{$p->title}}</td>
-                    <td>{{$p->category->title}}</td>
-                    <td>{{$p->posted}}</td>
+                    <td>{{$c->title}}</td>
+                    <td>{{$c->slug}}</td>
                     <td>
-                        <a href="{{route('post.edit',$p)}}">Editar</a>
-                        <a href="{{route('post.show',$p)}}">Ver</a>
-                        <form action="{{route('post.destroy',$p)}}" method="post">
+                        <a href="{{route('category.edit',$c)}}">Editar</a>
+                        <a href="{{route('category.show',$c)}}">Ver</a>
+                        <form action="{{route('category.destroy',$c)}}" method="post">
                             {{--EL METOD ES PARA ACLARAR QUE TIPO DE PETICION ES--}}
                             @csrf
                             @method("DELETE")
@@ -34,6 +32,6 @@
         </tbody>
     </table>
 
-    {{$posts->links()}}
+    {{$category->links()}}
 
 @endsection
