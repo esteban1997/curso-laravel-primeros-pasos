@@ -19,9 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('post',PostController::class);
-
-Route::resource('category',CategoryController::class);
+Route::group(['prefix'=>'dashboard'],function(){
+    Route::resources(['post'=>PostController::class,
+                     'category'=>CategoryController::class]);
+});
 
 // Route::get('post', [PostController::class,'index']);
 // Route::get('post/{post}', [PostController::class,'show']);
