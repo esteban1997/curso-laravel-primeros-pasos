@@ -1,14 +1,14 @@
 @extends('dashboard.layout')
 
 @section('content')
-<h1>{{$post->title}}</h1>
+<h1 class="form-control">{{$post->title}}</h1>
 
-<h1>{{$post->posted}}</h1>
+<h1 class="form-control">{{$post->posted}}</h1>
 
-<p>{{$post->description}}</p>
+<p class="form-control">{{$post->description}}</p>
 
-<div>{{$post->content}}</div>
+<div class="form-control">{{$post->content}}</div>
 
-<a href="{{route('post.index')}}">Volver</a>
+<a href="{{route('post.index')}}" class="btn btn-success" >Volver</a>
 
 @endsection

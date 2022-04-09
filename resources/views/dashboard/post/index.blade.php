@@ -2,10 +2,10 @@
 
 @section('content')
 
-    <a href="{{route('post.create')}}">Crear</a>
-    <a href="{{route('category.index')}}">Ir Categorias</a>
+    <a class="btn btn-success my-2" href="{{route('post.create')}}">Crear</a>
+    <a class="btn btn-primary my-2" href="{{route('category.index')}}">Ir Categorias</a>
 
-    <table border="1">
+    <table class="table">
         <thead>
             <tr>
                 <th>Titulo</th>
@@ -21,13 +21,13 @@
                     <td>{{$p->category->title}}</td>
                     <td>{{$p->posted}}</td>
                     <td>
-                        <a href="{{route('post.edit',$p)}}">Editar</a>
-                        <a href="{{route('post.show',$p)}}">Ver</a>
+                        <a class="btn btn-primary my-1" href="{{route('post.edit',$p)}}">Editar</a>
+                        <a class="btn btn-primary my-1" href="{{route('post.show',$p)}}">Ver</a>
                         <form action="{{route('post.destroy',$p)}}" method="post">
                             {{--EL METOD ES PARA ACLARAR QUE TIPO DE PETICION ES--}}
                             @csrf
                             @method("DELETE")
-                            <button type="submit">Eliminar</button>
+                            <button class="btn btn-danger " type="submit">Eliminar</button>
                         </form>
                 </tr>
             @endforeach
