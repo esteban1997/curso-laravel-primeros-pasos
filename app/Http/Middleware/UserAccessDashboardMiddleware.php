@@ -17,11 +17,10 @@ class UserAccessDashboardMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-
         if(Auth::user()->isAdmin()){
             return $next($request);
         }else{
-            return redirect("/");
+            return to_route("web.blog.index");
         }
 
     }
